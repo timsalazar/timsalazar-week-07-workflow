@@ -14,9 +14,11 @@ class Technology
     state :approved do
       event :publish, :transitions_to => :published
       event :unapprove, :transitions_to => :unapproved
+      event :edit, :transitions_to => :unapproved
     end
     state :published do
       event :retire,  :transitions_to => :retired
+      event :edit, :transitions_to => :unapproved
     end
     state :retired
   end
